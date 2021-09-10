@@ -1,0 +1,8 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |ansible|
+  ansible.vm.box = "bento/ubuntu-20.04"
+  ansible.vm.provider :shell do |shell|
+    shell.path = "setup.sh"
+  end
+end
