@@ -12,8 +12,8 @@ HyperLedger Art Blockchain
   vagrant up
   vagrant ssh
 ```
-3. Run ansible
+3. Run ansible in virtual machine
 ```
-  ansible -version
+  ansible --version
 ```
 
