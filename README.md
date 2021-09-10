@@ -9,7 +9,6 @@ HyperLedger Art Blockchain
 2. Start ansible vagrant vm and ssh into virtual box
 
 ```
-  cd tools
   vagrant up
   vagrant ssh
 ```
