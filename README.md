@@ -4,15 +4,16 @@ HyperLedger Art Blockchain
 
 ## Quick start on Windows 10
 
-1. Install docker-desktop, kind, and kubectl
+1. Install Vagrant
 
-2. Create local cluster
+2. Start ansible vagrant vm and ssh into virtual box
 
 ```
-kind create cluster --config=config.yaml
+  vagrant up
+  vagrant ssh
 ```
-3. Check cluster nodes
+3. Run ansible
 ```
-kubectl get nodes
+  ansible -version
 ```
 
