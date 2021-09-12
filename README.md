@@ -20,4 +20,9 @@ vagrant plugin install vagrant-vbguest
 ```
   ansible --version
 ```
+4. Start vms for org1 and org2
+```
+  cd local
+  vagrant up
+```
 
