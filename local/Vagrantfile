@@ -8,6 +8,7 @@ SCRIPT
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = BOX_IMAGE
   config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.network "private_network", type: "dhcp"
    
   ["org1", "org2"].each do |org|
     config.vm.define("#{org}") do |orgConfig|
