@@ -25,4 +25,14 @@ vagrant plugin install vagrant-vbguest
   cd local
   vagrant up
 ```
+5. Check org1 and org2
+```
+  cd local
+
+  #Login into org1
+  vagrant org1
+
+  #Login into org2
+  vagrant org2
+```
 
