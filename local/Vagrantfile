@@ -1,11 +1,6 @@
 VAGRANTFILE_API_VERSION = "2"
 
-$script = <<-SCRIPT
-sudo apt-get install -y net-tools
-SCRIPT
-
 require 'yaml'
-
 servers = YAML.load_file(File.join(File.dirname(__FILE__), 'servers.yaml'))
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -16,7 +11,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       orgConfig.vm.hostname = server["hostname"]
       orgConfig.vm.network "private_network", ip: server["ip"]
       config.vm.synced_folder ".", "/vagrant", disabled: true
-      orgConfig.vm.provision "shell", inline: $script
       orgConfig.vm.provider "virtualbox" do |v|
         v.memory = server["memory"]
         v.cpus = server["cpus"]
