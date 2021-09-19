@@ -47,4 +47,8 @@ Your should be able to see:
     "ping": "pong"
 }
 ```
+5. Install docker engine in target hosts
+```
+    ansible-playbook site.yaml
+```
 
