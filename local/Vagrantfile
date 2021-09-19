@@ -1,24 +1,26 @@
 VAGRANTFILE_API_VERSION = "2"
-BOX_IMAGE = "ubuntu/xenial64"
 
 $script = <<-SCRIPT
 sudo apt-get install -y net-tools
 SCRIPT
 
+require 'yaml'
+
+servers = YAML.load_file(File.join(File.dirname(__FILE__), 'servers.yaml'))
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = BOX_IMAGE
-  config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.network "private_network", type: "dhcp"
    
-  ["org1", "org2"].each do |org|
-    config.vm.define("#{org}") do |orgConfig|
-      orgConfig.vm.hostname = "#{org}.artchain.com"
+  servers.each do |server|
+    config.vm.define server["name"] do |orgConfig|
+      orgConfig.vm.box = server["box"]
+      orgConfig.vm.hostname = server["hostname"]
+      orgConfig.vm.network "private_network", ip: server["ip"]
+      config.vm.synced_folder ".", "/vagrant", disabled: true
       orgConfig.vm.provision "shell", inline: $script
       orgConfig.vm.provider "virtualbox" do |v|
-        v.memory = 4096
-        v.cpus = 2
+        v.memory = server["memory"]
+        v.cpus = server["cpus"]
       end
     end
   end
 end
-

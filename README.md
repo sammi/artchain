@@ -10,29 +10,41 @@ HyperLedger Art Blockchain
 vagrant plugin install vagrant-vbguest
 ```
 
-2. Start ansible vagrant vm and ssh into virtual box
+2. Build vms for org1 and org2 first, it generates private key for org1 and org2
+```
+  cd local
+  vagrant up
+```
+3. Build vm to run ansible command
 
 ```
+  cd ..
   vagrant up
+```
+4. Run ansible in virtual machine
+SSH into ansible vm:
+```
   vagrant ssh
 ```
-3. Run ansible in virtual machine
+Run ansible command to test if ansible vm could connect to target hosts
 ```
-  ansible --version
+  ansible -m ping all
 ```
-4. Start vms for org1 and org2
+Your should be able to see:
 ```
-  cd local
-  vagrant up
-```
-5. Check org1 and org2
-```
-  cd local
-
-  #Login into org1
-  vagrant org1
-
-  #Login into org2
-  vagrant org2
+192.168.56.13 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+192.168.56.12 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
 ```
 
