@@ -2,7 +2,7 @@ artchain
 --------
 HyperLedger Art Blockchain
 
-## Quick start on Windows 10
+## Quick start
 
 1. Install Virtualbox and Vagrant
 ```
