@@ -66,6 +66,31 @@
       dest: /usr/bin/kubectl
       mode: a+x
 
+  - name: Check if cluster has been created
+    shell: >
+      kind get clusters | grep artchain || echo "not be found"
+    register: cluster_has_been_created
+
+  - name: Create kubernetes cluster by kind
+    shell: >
+      kind create cluster --config cluster.yaml
+    when: '"artchain" not in cluster_has_been_created.stdout'
+    register: createClusterCmd
+    tags: createClusterCmd
+
+  - name: Export cluster config
+    shell: >
+      kind export kubeconfig --name artchain
+    register: exportKubeConfigCmd
+    tags: exportKubeConfigCmd
+
+  - name: move .kube config and change owner
+    shell: >
+      sudo mv /root/.kube /home/vagrant/.kube && \
+      sudo chown vagrant:docker -R /home/vagrant/.kube
+    register: moveKubeConfigCmd
+    tags: moveKubeConfigCmd
+
   handlers:
   - name: docker status
     service: name=docker state=started

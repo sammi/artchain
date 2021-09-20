@@ -7,6 +7,7 @@
   cpus: 2
   private_key_src: local/.vagrant/machines/org1/virtualbox/private_key
   private_key_target: .ssh/org1_private_key
+  cluster_forward_port: 34767
 - name: org2
   box: ubuntu/xenial64
   hostname: org2.artchain.com
@@ -15,3 +16,4 @@
   cpus: 2
   private_key_src: local/.vagrant/machines/org2/virtualbox/private_key
   private_key_target: .ssh/org2_private_key
+  cluster_forward_port: 34767
