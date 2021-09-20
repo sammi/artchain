@@ -71,6 +71,14 @@
       kind get clusters | grep artchain || echo "not be found"
     register: cluster_has_been_created
 
+  - name: Copy cluster.yaml file into hosts
+    ansible.builtin.copy:
+      src: cluster.yaml
+      dest: /home/vagrant/cluster.yaml
+      owner: vagrant
+      group: docker
+      mode: '0644'
+
   - name: Create kubernetes cluster by kind
     shell: >
       kind create cluster --config cluster.yaml
@@ -80,16 +88,16 @@
 
   - name: Export cluster config
     shell: >
-      kind export kubeconfig --name artchain
+      kind export kubeconfig --name artchain --kubeconfig /home/vagrant/.kube/config
     register: exportKubeConfigCmd
     tags: exportKubeConfigCmd
 
-  - name: move .kube config and change owner
-    shell: >
-      sudo mv /root/.kube /home/vagrant/.kube && \
-      sudo chown vagrant:docker -R /home/vagrant/.kube
-    register: moveKubeConfigCmd
-    tags: moveKubeConfigCmd
+  - name: Change .kube folder owner and permission
+    ansible.builtin.file: 
+      path: /home/vagrant/.kube
+      owner: vagrant
+      group: docker
+      mode: '0744'
 
   handlers:
   - name: docker status
