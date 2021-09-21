@@ -72,8 +72,8 @@
     register: cluster_has_been_created
 
   - name: Copy cluster.yaml file into hosts
-    ansible.builtin.copy:
-      src: cluster.yaml
+    ansible.builtin.template:
+      src: cluster.j2
       dest: /home/vagrant/cluster.yaml
       owner: vagrant
       group: docker
