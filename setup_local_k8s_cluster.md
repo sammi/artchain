@@ -21,11 +21,9 @@ vagrant plugin install vagrant-vbguest
 ```
 4. Copy kube config files to local
 
-Run the following command in powershell:
 ```
 cd C:/artchain/local
 scp -i .vagrant/machines/org1/virtualbox/private_key vagrant@192.168.56.12:/home/vagrant/.kube/config ~/.kube/org1_config
-
 scp -i .vagrant/machines/org2/virtualbox/private_key vagrant@192.168.56.13:/home/vagrant/.kube/config ~/.kube/org2_config
 ```
 
