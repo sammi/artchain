@@ -28,5 +28,7 @@ scp -i .vagrant/machines/org2/virtualbox/private_key vagrant@192.168.56.13:/home
 ```
 
 5. Install [lens](https://k8slens.dev/) and connect clusters
+
 Connect clusters for .kube/org1_config and .kube/org2_config
+
 ![Screenshot](lens_with_clusters.png)
