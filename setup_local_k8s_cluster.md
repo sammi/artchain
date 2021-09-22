@@ -21,13 +21,6 @@ vagrant plugin install vagrant-vbguest
 ```
 4. Copy kube config files to local
 
-You could get your local private key path by run:
-
-```
-  cd C:/artchain/local
-  vagrant ssh-config
-```
-
 Run the following command in powershell:
 ```
 cd C:/artchain/local
