@@ -12,11 +12,13 @@ vagrant plugin install vagrant-vbguest
   cd C:/
   git clone https://github.com/sammi/artchain.git
   cd C:/artchain/local
+  vagrant destroy -f
   vagrant up
 ```
 3. Build vm to run ansible playbook on org1 and org2 
 ```
   cd C:/artchain
+  vagrant destroy -f
   vagrant up --provision
 ```
 4. Copy kube config files to local
