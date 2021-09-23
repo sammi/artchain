@@ -3,6 +3,10 @@ VAGRANTFILE_API_VERSION = "2"
 $script = <<-SCRIPT
 sudo apt-get update
 sudo apt-get install -y ansible
+wget https://releases.hashicorp.com/vault/1.8.2/vault_1.8.2_linux_amd64.zip
+unzip vault_1.8.2_linux_amd64.zip
+chmod a+x vault
+sudo mv vault /usr/bin/.
 SCRIPT
 
 require 'yaml'

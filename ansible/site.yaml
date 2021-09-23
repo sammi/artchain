@@ -68,7 +68,7 @@
 
   - name: Check if cluster has been created
     shell: >
-      kind get clusters | grep artchain- || echo "not be found"
+      kind get clusters | grep artchain-{{ org_name }} || echo "not be found"
     register: cluster_has_been_created
 
   - name: Copy cluster.yaml file into hosts
@@ -82,7 +82,7 @@
   - name: Create kubernetes cluster by kind
     shell: >
       kind create cluster --config cluster.yaml
-    when: '"artchain_" not in cluster_has_been_created.stdout'
+    when: '"artchain-" not in cluster_has_been_created.stdout'
     register: createClusterCmd
     tags: createClusterCmd
 
