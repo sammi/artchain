@@ -43,4 +43,6 @@ Sessionx.vim
 tags
 # Persistent undo
 [._]*.un~
+#vagrant box files
+*.box
 

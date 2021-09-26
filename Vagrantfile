@@ -18,7 +18,8 @@ require 'yaml'
 servers = YAML.load_file(File.join(File.dirname(__FILE__), 'local/servers.yaml'))
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "generic/ubuntu2010"
+  config.vm.box = "ansible"
+  config.vm.box_url = "file://./ansible_abovetheborg_ubuntu-focal.box"
   config.vm.network "private_network", ip: "192.168.56.11"
   config.vm.provision "file", source: "ansible", destination: "."
   config.vm.provision "file", source: "vault.service", destination: "vault.service"

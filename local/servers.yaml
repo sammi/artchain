@@ -1,6 +1,7 @@
 ---
 - name: org1
   box: ubuntu/xenial64
+  box_url: file://./org_ubuntu_xenial64.box
   hostname: org1.artchain.com
   ip: 192.168.56.12
   memory: 4096
@@ -9,6 +10,7 @@
   private_key_target: .ssh/org1_private_key
 - name: org2
   box: ubuntu/xenial64
+  box_url: file://./org_ubuntu_xenial64.box
   hostname: org2.artchain.com
   ip: 192.168.56.13
   memory: 4096

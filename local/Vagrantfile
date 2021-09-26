@@ -8,6 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   servers.each do |server|
     config.vm.define server["name"] do |orgConfig|
       orgConfig.vm.box = server["box"]
+      orgConfig.vm.box_url = server["box_url"]
       orgConfig.vm.hostname = server["hostname"]
       orgConfig.vm.network "private_network", ip: server["ip"]
       config.vm.synced_folder ".", "/vagrant", disabled: true
