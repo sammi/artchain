@@ -19,14 +19,15 @@ vagrant plugin install vagrant-vbguest
 ```
   cd C:/artchain
   vagrant destroy -f
-  vagrant up --provision
+  vagrant up
 ```
 4. Copy kube config files to local
 
 ```
+rm -rf %homedrive%%homepath%/.kube/*
 cd C:/artchain/local
-scp -i .vagrant/machines/org1/virtualbox/private_key vagrant@192.168.56.12:/home/vagrant/.kube/config ~/.kube/org1_config
-scp -i .vagrant/machines/org2/virtualbox/private_key vagrant@192.168.56.13:/home/vagrant/.kube/config ~/.kube/org2_config
+scp -i .vagrant/machines/org1/virtualbox/private_key vagrant@192.168.56.12:/home/vagrant/.kube/config %homedrive%%homepath%/.kube/org1_config
+scp -i .vagrant/machines/org2/virtualbox/private_key vagrant@192.168.56.13:/home/vagrant/.kube/config %homedrive%%homepath%/.kube/org2_config
 ```
 
 5. Install [lens](https://k8slens.dev/) and connect clusters
