@@ -1,4 +1,4 @@
-Setup local kubernetes clusters in Windows 10 - Using Powershell please
+Setup local kubernetes clusters in Windows 10 - Using Cmd Window please
 -----------------------------------------------------------------------
 
 1. Install [Virtualbox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/)
