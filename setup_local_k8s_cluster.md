@@ -2,8 +2,8 @@ Setup local kubernetes clusters in Windows 10 - Using Powershell please
 -----------------------------------------------------------------------
 
 1. Install [Virtualbox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/)
+Install vbguest plugin
 ```
-#Install vbguest plugin:
 vagrant plugin install vagrant-vbguest
 ```
 
@@ -22,7 +22,7 @@ vagrant plugin install vagrant-vbguest
   vagrant up
 ```
 4. Copy kube config files to local
-
+Use cmd window, not powershell window to run the following commands.
 ```
 rm -rf %homedrive%%homepath%/.kube/*
 cd C:/artchain/local
