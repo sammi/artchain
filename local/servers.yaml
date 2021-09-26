@@ -1,7 +1,7 @@
 ---
 - name: org1
-  box: ubuntu/xenial64
-  box_url: file://./org_ubuntu_xenial64.box
+  box: artchain_org
+  box_url: https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cloud-images/bionic/current/bionic-server-cloudimg-amd64-vagrant.box
   hostname: org1.artchain.com
   ip: 192.168.56.12
   memory: 4096
@@ -9,8 +9,8 @@
   private_key_src: local/.vagrant/machines/org1/virtualbox/private_key
   private_key_target: .ssh/org1_private_key
 - name: org2
-  box: ubuntu/xenial64
-  box_url: file://./org_ubuntu_xenial64.box
+  box: artchain_org
+  box_url: https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cloud-images/bionic/current/bionic-server-cloudimg-amd64-vagrant.box
   hostname: org2.artchain.com
   ip: 192.168.56.13
   memory: 4096
