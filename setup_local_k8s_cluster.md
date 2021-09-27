@@ -15,14 +15,16 @@ vagrant plugin install vagrant-vbguest
   vagrant destroy -f
   vagrant up
 ```
-3. Build vm to run ansible playbook on org1 and org2 
+3. Build vm to run ansible playbook on org1 and org2
 ```
   cd C:/artchain
   vagrant destroy -f
   vagrant up
 ```
 4. Copy kube config files to local
-Use cmd window, not powershell window to run the following commands.
+
+* Use cmd window, not powershell window to run the following commands.
+
 ```
 rm -rf %homedrive%%homepath%/.kube/*
 cd C:/artchain/local
