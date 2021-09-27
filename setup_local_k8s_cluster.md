@@ -27,10 +27,10 @@ vagrant up
 Use cmd window, not powershell window to run the following commands.
 
 ```
-rm -rf %homedrive%%homepath%/.ssh/*
 cd C:/artchain/local
-scp -i .vagrant/machines/org1/virtualbox/private_key vagrant@192.168.56.12:/home/vagrant/.kube/config %homedrive%%homepath%/.kube/org1_config
-scp -i .vagrant/machines/org2/virtualbox/private_key vagrant@192.168.56.13:/home/vagrant/.kube/config %homedrive%%homepath%/.kube/org2_config
+rm -rf %homedrive%%homepath%/.ssh/*
+scp -o StrictHostKeyChecking=no -i .vagrant/machines/org1/virtualbox/private_key vagrant@192.168.56.12:/home/vagrant/.kube/config %homedrive%%homepath%/.kube/org1_config
+scp -o StrictHostKeyChecking=no -i .vagrant/machines/org2/virtualbox/private_key vagrant@192.168.56.13:/home/vagrant/.kube/config %homedrive%%homepath%/.kube/org2_config
 ```
 
 5. Install [lens](https://k8slens.dev/) and connect clusters
