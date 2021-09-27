@@ -2,7 +2,7 @@ Setup local kubernetes clusters in Windows 10 - Using Cmd Window please
 -----------------------------------------------------------------------
 
 1. Install [Virtualbox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/)
-Install vbguest plugin
+* Install vbguest plugin
 ```
 vagrant plugin install vagrant-vbguest
 ```
