@@ -2,7 +2,8 @@ Setup local kubernetes clusters in Windows 10 - Using Cmd Window please
 -----------------------------------------------------------------------
 
 0. Get that Linux feeling - on Windows
-   Instal [cygwin](https://cygwin.com/install.html)
+   
+Install [cygwin](https://cygwin.com/install.html)
 
 1. Install [Virtualbox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/)
 
