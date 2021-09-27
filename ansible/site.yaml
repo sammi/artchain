@@ -79,12 +79,25 @@
       group: docker
       mode: 0644
 
+  - name: Download get_helm.sh
+    get_url:
+      url: https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+      dest: /usr/bin/get_helm.sh
+      mode: a+x
+
+  - name: Install helm command line tool
+    shell: >
+      get_helm.sh
+    register: getHelmCmd
+    tags: getHelmCmd
+
   - name: Create kubernetes cluster by kind
     shell: >
       kind create cluster --config cluster.yaml
     when: '"artchain-" not in cluster_has_been_created.stdout'
     register: createClusterCmd
     tags: createClusterCmd
+
 
   - name: Export cluster config
     shell: >
