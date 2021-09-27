@@ -110,7 +110,7 @@
       path: /home/vagrant/.kube/config
       owner: vagrant
       group: docker
-      mode: u=rw,g=r,o=r
+      mode: u=rw,g-r,o-r
 
   handlers:
   - name: docker status
