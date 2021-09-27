@@ -22,9 +22,7 @@ cd C:/artchain
 vagrant destroy -f
 vagrant up
 ```
-4. Copy kube config files to local
-
-Use cmd window, not powershell window to run the following commands.
+4. Copy kube config files to local, use cmd window, not powershell window to run the following commands.
 
 ```
 cd C:/artchain/local
@@ -33,8 +31,5 @@ scp -o StrictHostKeyChecking=no -i .vagrant/machines/org1/virtualbox/private_key
 scp -o StrictHostKeyChecking=no -i .vagrant/machines/org2/virtualbox/private_key vagrant@192.168.56.13:/home/vagrant/.kube/config %homedrive%%homepath%/.kube/org2_config
 ```
 
-5. Install [lens](https://k8slens.dev/) and connect clusters
-
-Connect clusters for .kube/org1_config and .kube/org2_config
-
+5. Install [lens](https://k8slens.dev/) and connect clusters, connect clusters for .kube/org1_config and .kube/org2_config
 ![Screenshot](lens_with_clusters.png)
